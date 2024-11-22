@@ -10,8 +10,17 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#4FAE5A",
+        secondary: "#000000",
+        accent: "#F6F6F6"
       },
     },
+    fontFamily: {
+      'sans': ['ui-sans', 'system-ui'],
+      'serif': ['ui-serif', 'Kulim Park'],
+      'display': ['Kulim Park'],
+      'body': ['Kulim Park']
+    }
   },
   plugins: [],
 };
