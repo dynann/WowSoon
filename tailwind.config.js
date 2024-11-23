@@ -18,9 +18,11 @@ module.exports = {
     fontFamily: {
       'sans': ['ui-sans', 'system-ui'],
       'serif': ['ui-serif', 'Kulim Park'],
-      'display': ['Kulim Park'],
-      'body': ['Kulim Park']
-    }
+      Kulim: ['"Kulim Park"', 'sans-serif']
+    },
+
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 };
