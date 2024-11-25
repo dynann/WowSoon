@@ -1,153 +1,139 @@
-'use client'
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
-import Link from "next/link"
-export default function RegisterPage(){
+"use client";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
+import InputWithIcon from "/components/InputWithIcon";
+import Button from '/components/signIn&UpButton.js';
 
-
-  //?? old authentication function
-  // const router = useRouter()
-  // const [user, setUser] = useState([])
-  // const [isSignIn, setIsSignIn] = useState(false)
-  // const [formData, setFormData] = useState({
-  //   username: '',
-  //   email: '',
-  //   phone: '',
-  //   password: '',
-  // })
-
-  // useEffect(() => {
-  //   const storedUser = localStorage.getItem('user')
-  //   if(storedUser){
-  //     setUser(JSON.parse(storedUser))
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   localStorage.setItem('user', JSON.stringify(user))
-  // }, [user])
-
-  // useEffect(() => {
-  //   if(isSignIn){
-  //     router.push('/login')
-  //   }
-  // })
- 
-
-  // console.log(isSignIn)
-  // //handle input change
-  // const HandleInput = (e) => {
-  //   const { name, value } = e.target
-  //   setFormData({ ...formData, [name]:value })
-  // } 
-
-  // //handle submission function 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   if(!formData.username || !formData.email || !formData.phone || !formData.password ){
-  //     console.log('form must be filled')
-  //     return 
-  //   }
-
-  //   setUser([...user, formData])
-  //   setFormData({ username: '', email: '', phone: '', password: ''})
-  //   setIsSignIn(true)
-  //   console.log('successfully signin in')
-  // }
-
-  //!! new authentication with Next Auth 
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
-  const router = useRouter()
+export default function RegisterPage() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(null);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if(!username || !email || !phone || !password ){
-      console.log('form must be filled')
-      return
+    e.preventDefault();
+
+    if (!username || !email || !phone || !password || !confirmPassword) {
+      console.log('form must be filled');
+      return;
     }
- 
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
     try {
-      //check whether user already exists  
       const resUserExists = await fetch('/api/userExists', {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({email})
-      })
-      const { user } = await resUserExists.json()
-      if(user){
-        setError("user already exist")
-        return
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const { user } = await resUserExists.json();
+      if (user) {
+        setError("User already exists");
+        return;
       }
 
-
-      //fetch register api route from
-      //register and add to database
       const res = await fetch('/api/register', {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username, email, phone, password
-        })
-      })
-      if(res.ok){
-        e.target.reset()
-        router.push("/login") //todo push back and refresh the route
-        router.refresh()
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, phone, password }),
+      });
+
+      if (res.ok) {
+        e.target.reset();
+        router.push("/login");
+        router.refresh();
       } else {
-        setError(res.json().message)
+        setError((await res.json()).message);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
-  }
+  };
 
-     
-    return (
-        <div className=" relative p-8 flex flex-col space-y-4 items-center ">
-        <div className="mt-16 flex flex-col items-center">
-          <div className="bg-white rounded-full p-4 w-20 h-20 flex items-center justify-center mb-4">
-              {/* logo section */}
-            <div className="relative">
-              <div
-                className="w-6 h-8 bg-primary absolute left-0 transform -rotate-45"
-                style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)" }}
-              ></div>
-              <div
-                className="w-4 h-6 bg-primary absolute right-0 transform rotate-45"
-                style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%, 0 100%)" }}
-              ></div>
-            </div>
-          </div>
-          <h1 className="text-white text-3xl font-bold">WOWSOON</h1>
-          {/* logo section */}
-        </div>
-           <form className="flex flex-col min-w-full justify-center items-center pt-5" onSubmit={handleSubmit}>
-           <div className="flex justify-center flex-col mb-2 w-full max-w-xs rounded-full">
-               <input type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)} className="bg-white text-gray-800 w-full max-w-xs py-4 px-6 rounded-full  flex items-center justify-center border-none mb-2"/>
-               <input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} className="bg-white text-gray-800 w-full max-w-xs py-4 px-6 rounded-full  flex items-center justify-center border-none mb-2"/>
-               <input type="text" placeholder="phone" onChange={(e) => setPhone(e.target.value)} className="bg-white text-gray-800 w-full max-w-xs py-4 px-6 rounded-full  flex items-center justify-center border-none mb-2"/>
-               <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} className="bg-white text-gray-800 w-full max-w-xs py-4 px-6 rounded-full  flex items-center justify-center border-none mb-2"/>
-          </div>
-         <button type="submit"  className="bg-white text-gray-800 w-full max-w-xs py-4 px-6 rounded-full  flex items-center justify-center ">Continue</button>
-       </form>
-       <Link href={"/login"}>
-          {" "}
-          already have account <span>login </span>{" "}
-        </Link>
-       {error && (
-          <div>
-            {error}
-          </div>
-       )}
+  const handleGoogleSignIn = () => {
+    console.log('Google Sign-In triggered');
+    // Add Google Sign-In logic here
+  };
+
+  const handleFacebookSignIn = () => {
+    console.log('Facebook Sign-In triggered');
+    // Add Facebook Sign-In logic here
+  };
+
+  return (
+    <div className="relative p-8 flex flex-col space-y-4 items-center bg-white">
+      <div className="relative flex flex-col space-y-4 w-[90%] sm:w-[300px] lg:w-[400px] items-center">
+        <img src="/img/logo.png" alt="logo" />
+        <h1 className="text-white text-3xl font-bold">WOWSOON</h1>
       </div>
-    )
+
+      <form className="flex flex-col min-w-full justify-center items-center pt-5" onSubmit={handleSubmit}>
+        <InputWithIcon
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          icon="user"
+        />
+        <InputWithIcon
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          icon="email"
+        />
+        <InputWithIcon
+          type="text"
+          placeholder="Phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          icon="phone"
+        />
+        <InputWithIcon
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          icon="lock"
+        />
+        <InputWithIcon
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          icon="lock"
+        />
+        <Button type="submit" text="Sign Up" />
+      </form>
+
+      <div>
+        Or you can <p className="flex justify-center items-center">sign in with</p>
+      </div>
+
+      <div className="sm:px-0 max-w-sm flex flex-row justify-center items-center space-x-4">
+        <button onClick={handleGoogleSignIn}>
+          <img src="img/appleID.png" alt="apple logo" className="mr-2" />
+        </button>
+        <button onClick={handleGoogleSignIn}>
+          <img src="img/google.png" alt="google logo" className="mr-2" />
+        </button>
+        <button onClick={handleFacebookSignIn}>
+          <img src="img/facebook.png" alt="facebook logo" className="mr-2" />
+        </button>
+      </div>
+
+      <Link href="/login">
+        Already have an account? <span className="text-red-700">Login</span>
+      </Link>
+
+      {error && <div className="text-red-700 mt-4">{error}</div>}
+    </div>
+  );
 }

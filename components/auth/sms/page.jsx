@@ -33,11 +33,11 @@ export default function SmsPage(){
                         <button className="mb-3 px-2 py1 justify-center bg-white text-black" onClick={handleOTP}> confirm</button>
                     </div>
                 ) : (
-                    <h1>
+                    <div>
                         <h1>
                             go back to sign in
                         </h1>
-                    </h1>
+                    </div>
                 )}
             </h1>
         </div>
