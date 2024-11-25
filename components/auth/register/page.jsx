@@ -114,13 +114,10 @@ export default function RegisterPage() {
       </form>
 
       <div>
-        Or you can <p className="flex justify-center items-center">sign in with</p>
+        <p className="flex justify-center items-center"> Or you can sign in with</p>
       </div>
 
       <div className="sm:px-0 max-w-sm flex flex-row justify-center items-center space-x-4">
-        <button onClick={handleGoogleSignIn}>
-          <img src="img/appleID.png" alt="apple logo" className="mr-2" />
-        </button>
         <button onClick={handleGoogleSignIn}>
           <img src="img/google.png" alt="google logo" className="mr-2" />
         </button>

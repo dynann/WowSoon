@@ -99,13 +99,6 @@ export default function LoginPage() {
             onClick={handleGoogleSignIn}
            
           >
-            <img src="img/appleID.png" alt="apple logo" className="mr-2" />
-           
-          </button>
-          <button
-            onClick={handleGoogleSignIn}
-           
-          >
             <img src="img/google.png" alt="google logo" className="mr-2" />
            
           </button>
