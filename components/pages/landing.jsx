@@ -5,13 +5,18 @@ export default function LandingPage() {
   return (
     <div className=" relative flex flex-col items-center font-Kulim ">
       <div className="relative ">
-        <img src="/img/Landing.png" alt="Landing page logo" className="w-full" />
+        <img
+          src="/img/Landing.png"
+          alt="Landing page logo"
+          className="w-full"
+        />
 
         <Link href="/register">
-        <Button
-  className="
+          <Button
+            className="
+            text-secondary 
   hover:bg-gray-200
-  hover:text-primary
+   hover:text-primary
     absolute 
     left-1/2 
     sm:top-[56%]
@@ -21,14 +26,12 @@ export default function LandingPage() {
     top-[85%] 
     -translate-y-0 
      bg-white 
-    text-[#000000]
+    
   "
-  type="submit"
-  text="Let's get started!"
-/>
-
+            type="submit"
+            text="Let's get started!"
+          />
         </Link>
-
       </div>
     </div>
   );

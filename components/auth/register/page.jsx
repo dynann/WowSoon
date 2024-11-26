@@ -110,7 +110,7 @@ export default function RegisterPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           icon="lock"
         />
-        <Button type="submit" text="Sign Up" />
+        <Button type="submit" text="Sign Up" className="bg-secondary text-white" />
       </form>
 
       <div>
