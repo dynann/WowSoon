@@ -1,5 +1,5 @@
-import userCentralPage from "@/components/pages/userCentral"
+import HomePage from "@/components/pages/userCentral";
 
-export default function user(){
-    return <userCentralPage/>
+export default function Home(){
+    return <HomePage/>
 }
