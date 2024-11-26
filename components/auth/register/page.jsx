@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import InputWithIcon from "/components/InputWithIcon";
 import Button from '/components/signIn&UpButton.js';
+import { signIn } from "next-auth/react";
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -57,14 +58,13 @@ export default function RegisterPage() {
     }
   };
 
-  const handleGoogleSignIn = () => {
-    console.log('Google Sign-In triggered');
-    // Add Google Sign-In logic here
+  const handleGoogleSignIn = async () => {
+    await signIn('google', { callbackUrl: "/home"})
+    
   };
 
-  const handleFacebookSignIn = () => {
-    console.log('Facebook Sign-In triggered');
-    // Add Facebook Sign-In logic here
+  const handleFacebookSignIn = async () => {
+    await signIn('facebook', {callbackUrl: "/home"})
   };
 
   return (
