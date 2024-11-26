@@ -2,7 +2,7 @@ export default function Card() {
   return (
     <div>
       <div className="max-w-md lg:flex  flex shadow-md rounded-[24px] overflow-hidden w-[404px] h-[175px] justify-center items-center bg-primary">
-        {/* Left Side: Text Content */}
+        
         <div className="p-4 pl-[1.5rem] flex flex-col justify-between w-2/3">
           <div>
             <h3 className="text-lg font-semibold text-white">
@@ -14,7 +14,7 @@ export default function Card() {
             Order Now
           </button>
         </div>
-        {/* Right Side: Image */}
+      
         <div className="w-full">
           <img
             src="/img/spaghetti.png"
