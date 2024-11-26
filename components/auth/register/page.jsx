@@ -68,7 +68,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="relative p-8 flex flex-col space-y-4 items-center bg-white">
+    <div className="relative p-8 flex flex-col space-y-4 items-center min-h-screen bg-white">
       <div className="relative flex flex-col space-y-4 w-[90%] sm:w-[300px] lg:w-[400px] items-center">
         <img src="/img/logo.png" alt="logo" />
         <h1 className="text-white text-3xl font-bold">WOWSOON</h1>
@@ -114,23 +114,23 @@ export default function RegisterPage() {
       </form>
 
       <div>
-        Or you can <p className="flex justify-center items-center">sign in with</p>
+        <p className="flex justify-center items-center"> Or you can sign in with</p>
       </div>
 
       <div className="sm:px-0 max-w-sm flex flex-row justify-center items-center space-x-4">
-        <button onClick={handleGoogleSignIn}>
-          <img src="img/appleID.png" alt="apple logo" className="mr-2" />
-        </button>
-        <button onClick={handleGoogleSignIn}>
+        <button onClick={handleGoogleSignIn} className="flex flex-col justify-center items-center">
           <img src="img/google.png" alt="google logo" className="mr-2" />
+          <span>Google</span>
         </button>
-        <button onClick={handleFacebookSignIn}>
+        <button onClick={handleFacebookSignIn} className="flex flex-col justify-center items-center">
           <img src="img/facebook.png" alt="facebook logo" className="mr-2" />
+          <span>Facebook</span>
         </button>
       </div>
 
       <Link href="/login">
-        Already have an account? <span className="text-red-700">Login</span>
+        <span>Already have an account? </span>
+        <span className="text-red-700">Login</span>
       </Link>
 
       {error && <div className="text-red-700 mt-4">{error}</div>}
