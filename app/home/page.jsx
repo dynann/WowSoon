@@ -1,5 +1,4 @@
-import HomePage from "@/components/pages/userCentral";
-
-export default function Home(){
-    return <HomePage/>
+import HomePage from "@/components/pages/home";
+export default function home(){
+  return<HomePage/>;
 }

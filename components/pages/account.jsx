@@ -17,7 +17,7 @@ export default function AccountPage(){
                     alt="profile picture"
                   ></Image>
                 </div>
-                <h1 className="text-2xl font-bold pt-3">Mark Suckerberg</h1>
+                <h1 className="text-2xl font-bold pt-3">{session.user?.name}{session.user?.username}</h1>
               </div>
     
               <div className="flex flex-col items-center space-y-4 justify-center mt-10 ">

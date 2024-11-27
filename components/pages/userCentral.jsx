@@ -3,14 +3,15 @@ import { signOut, useSession} from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import NavigationBar from "../layout/navbar";
 
 
 
-export default function HomePage() {
+export default function userCentralPage() {
   const router = useRouter()
-  const { data: session } = useSession();
+  const { data: session } = useSession()
   const account = () => {
-    router.push('/home/account')
+    router.push('/user/account')
   }
 
 
@@ -29,7 +30,7 @@ export default function HomePage() {
                 alt="profile picture"
               ></Image>
             </div>
-            <h1 className="text-2xl font-bold pt-3">{session.user?.username}</h1>
+            <h1 className="text-2xl font-bold pt-3">{session.user?.username}{session.user?.name}</h1>
           </div>
 
           <div className="flex flex-col items-center space-y-4 justify-center mt-10 ">
@@ -52,6 +53,7 @@ export default function HomePage() {
               Log Out
             </button>
           </div>
+          <NavigationBar/>
         </div>
       ) : (
         <div>

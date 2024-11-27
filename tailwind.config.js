@@ -15,11 +15,9 @@ module.exports = {
         accent: "#F6F6F6"
         
       },
-    },
-    fontFamily: {
-      'sans': ['ui-sans', 'system-ui'],
-      'serif': ['ui-serif', 'Kulim Park'],
-      Kulim: ['"Kulim Park"', 'sans-serif']
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'], // Add Poppins to the font family list
+      },
     },
 
   },
