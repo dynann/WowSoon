@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { signIn } from "next-auth/react";
-import InputWithIcon from "/components/InputWithIcon"; // Import the new InputWithIcon component
+import InputWithIcon from "@/components/tools/InputWithIcon";
 
 export default function LoginPage() {
   const router = useRouter();

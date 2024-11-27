@@ -1,9 +1,10 @@
 import Link from "next/link";
-import Button from "/components/signIn&UpButton.js";
+import Button from "../tools/signIn&UpButton";
+
 
 export default function LandingPage() {
   return (
-    <div className=" relative flex flex-col items-center font-Kulim ">
+    <div className=" relative flex flex-col items-center  ">
       <div className="relative ">
         <img
           src="/img/Landing.png"
