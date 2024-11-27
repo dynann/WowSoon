@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 
 
-export default function HomePage() {
+export default function userCentralPage() {
   const router = useRouter()
   const { data: session } = useSession();
   const account = () => {
