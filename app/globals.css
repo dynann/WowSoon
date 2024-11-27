@@ -4,9 +4,7 @@
 @tailwind utilities;
 
 
-*{
-  font-family: 'Kulim Park';
-}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
