@@ -13,17 +13,17 @@ export default function Container() {
         <div className="p-4 flex flex-col justify-between h-full">
           
           <div>
-            <h3 className="text-[15px] font-semibold ">
+            <h3 className="text-[14px] font-semibold ">
               Double Cheese Spaghetti
             </h3>
-            <p className="text-sm  mt-2">The original taste from Italy</p>
+            <p className="text-[10px]  mt-2">The original taste from Italy</p>
           </div>
 
           
-          <div className="flex justify-between items-center ">
-            <div className=" font-semibold ">$12</div>
-            <button className="bg-primary text-white py-2 px-4 rounded-full text-sm flex items-center">
-              <MdShoppingCart className="mr-2" /> 
+          <div className="flex justify-between items-center mt-2">
+            <div className=" font-[16px] ">$12</div>
+            <button className="bg-primary text-white py-[6px] px-[9px] rounded-[14px] text-[12px] flex items-center">
+              <MdShoppingCart className="font-[12px]" /> 
               Add to Cart
             </button>
           </div>
