@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 
 
-export default function HomePage() {
+export default function UserCentral() {
   const router = useRouter()
   const { data: session } = useSession();
   const account = () => {
@@ -29,7 +29,7 @@ export default function HomePage() {
                 alt="profile picture"
               ></Image>
             </div>
-            <h1 className="text-2xl font-bold pt-3">{session.user?.username}</h1>
+            <h1 className="text-2xl font-bold pt-3">{session.user?.username}{session.user?.name}</h1>
           </div>
 
           <div className="flex flex-col items-center space-y-4 justify-center mt-10 ">
