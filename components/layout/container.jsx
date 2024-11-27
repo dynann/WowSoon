@@ -1,15 +1,12 @@
 import { MdShoppingCart } from "react-icons/md";
+import Image from "next/image";
 export default function Container() {
   return (
     <div>
       <div className="w-[192px] h-[228px] flex flex-col shadow-md rounded-[18px] overflow-hidden text-secondary bg-accent">
         
         <div className="w-full h-[100px]">
-          <img
-            src="/img/spaghetti.png"
-            alt="Spaghetti"
-            className="object-cover" // Ensures the image fills the fixed height and width of the card
-          />
+          <Image src="/img/spaghetti.png" width={500} height={100} alt="food"/>
         </div>
 
        

@@ -1,5 +1,20 @@
+import home from '@/app/home/page';
+import { useRouter } from 'next/navigation';
 import { FaHome, FaShoppingCart, FaHistory, FaUser } from 'react-icons/fa'; 
 export default function NavigationBar(){
+  const router = useRouter()
+  const accountClick = () => {
+    router.push('/user')
+  }
+  const homeClick = () => {
+    router.push('/home')
+  }
+  const pastOrderClick = () => {
+    router.push('/past_order')
+  }
+  const cartClick = () => {
+    router.push('/cart')
+  }
     return (
         <div className="fixed bottom-0 left-0 right-0 bg-black text-white p-4 flex justify-around items-center shadow-lg   ">
           
