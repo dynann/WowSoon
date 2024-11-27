@@ -2,8 +2,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
-import InputWithIcon from "/components/InputWithIcon";
-import Button from '/components/signIn&UpButton.js';
+import InputWithIcon from "@/components/tools/InputWithIcon";
+import Button from '@/components/tools/signIn&UpButton.js';
 import { signIn } from "next-auth/react";
 
 export default function RegisterPage() {

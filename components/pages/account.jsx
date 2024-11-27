@@ -2,8 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import Loading from "../tools/loading";
 export default function AccountPage(){
-    const {data: session} = useSession()
+    const {data: session, status} = useSession()
+    if(status === 'loading'){
+      return <Loading/>
+    }
     return (
         <div className="bg-white h-screen flex flex-col top-0 ">
           {session ? (
