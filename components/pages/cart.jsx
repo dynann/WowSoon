@@ -69,8 +69,8 @@ export default function CartPage() {
           ))}
 
           <VoucherAndNoted />
-          <div className=" mx-4">
-            <div className="bg-primary rounded-[18px] p-4 space-y-2 text-white">
+          <div className=" mx-4 w-[398px]">
+            <div className="bg-primary rounded-[18px] p-4  w-full space-y-2 text-white">
               <div className="space-x-10">
                 <span>Subtotal: </span>
                 <span> ${subtotal.toFixed(2)} </span>

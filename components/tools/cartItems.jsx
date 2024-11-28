@@ -4,7 +4,7 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
   const { id, title, image, price, quantity } = item;
 
   return (
-    <div className="w-[398px] h-[133px] flex flex-col justify-center items-center shadow-md rounded-[18px] overflow-hidden text-secondary bg-accent p-4">
+    <div className="w-[398px] h-[133px] flex flex-col justify-center items-center shadow-xl rounded-[18px] overflow-hidden text-secondary bg-accent p-4">
       <div className="flex items-center space-x-4">
         {/* Image Section */}
         <div className="bg-white rounded-[12px]">
@@ -26,14 +26,14 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
           <div className="flex items-center justify-between bg-white rounded-[18px] py-2 px-4 shadow-sm">
             {/* Delete Button */}
             <button
-              className="text-secondary hover:text-red-700"
+              className="text-secondary hover:text-red-700 mr-1"
               onClick={() => onDelete(id)}
             >
               <MdDelete className="w-[26px] h-[26px] text-white bg-primary rounded-full p-[4px] hover:bg-red-500" />
             </button>
 
             {/* Quantity Buttons */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 ml-1">
               <button
                 className="text-[18px] w-[26px] h-[26px] font-extrabold text-white bg-primary rounded-full"
                 onClick={() => onDecrease(id)}
