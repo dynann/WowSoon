@@ -84,13 +84,13 @@ export default function LoginPage() {
         </form>
 
         <div>
-          <div>
+          <div className="text-secondary">
             {" "}
             Don't have an account?{" "}
             <Link href="/register" className="font-bold text-red-700">
               Sign up
             </Link>{" "}
-            <p className="flex justify-center items-center">Or sign in with</p>
+            <p className="flex justify-center items-center text-secondary">Or sign in with</p>
           </div>
         </div>
 
@@ -100,7 +100,7 @@ export default function LoginPage() {
             className="flex flex-col justify-center items-center"
           >
             <img src="img/google.png" alt="google logo" className="mr-2" />
-            <span>Google</span>
+            
           </button>
 
           <button
@@ -108,7 +108,7 @@ export default function LoginPage() {
             className="flex flex-col justify-center items-center"
           >
             <img src="img/facebook.png" alt="facebook logo" className="mr-2" />
-            <span>Facebook</span>
+            
           </button>
         </div>
 

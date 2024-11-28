@@ -1,14 +1,15 @@
-"use client";
-
+"use client"
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-function ButtonWithIcon({ label, icon: Icon, route }) {
+function ButtonWithIcon({ label, icon: Icon, route, onClick }) {
   const router = useRouter();
 
   const handleClick = () => {
-    if (route) {
-      router.push(route);
+    if(onClick){
+      onClick()
+    } else if(route){
+      router.push(route)
     }
   };
 

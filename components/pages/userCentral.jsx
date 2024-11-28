@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import NavigationBar from "../layout/navbar";
 import { FaUser, FaCog, FaCreditCard, FaHeart, FaHeadset, FaSignOutAlt } from "react-icons/fa"; // Import icons
-import ButtonWithIcon from "../ButtonWithIcon"; // Adjust the path based on your folder structure
+import ButtonWithIcon from "../tools/ButtonWithIcon"; // Adjust the path based on your folder structure
 
 export default function UserCentralPage() {
   const { data: session } = useSession();
+  
+ 
 
   return (
     <div className="bg-white h-screen flex flex-col top-0">
@@ -29,14 +31,15 @@ export default function UserCentralPage() {
             {/* Use the reusable ButtonWithIcon component */}
             <ButtonWithIcon label="Account" icon={FaUser} route="/user/account" />
             <ButtonWithIcon label="Setting" icon={FaCog} route="/user/setting" />
-            <ButtonWithIcon label="Payment Method" icon={FaCreditCard} route="/user/payment-method" />
+            <ButtonWithIcon label="Payment Method" icon={FaCreditCard} route="/user/payment" />
             <ButtonWithIcon label="Favourite Restaurant" icon={FaHeart} route="/user/favourite-restaurant" />
             <ButtonWithIcon label="Support" icon={FaHeadset} route="/user/support" />
             <ButtonWithIcon
               label="Log Out"
               icon={FaSignOutAlt}
-              route=""
-              onClick={signOut} // You can handle sign-out separately
+              onClick={() => {
+                signOut()
+              }}
             />
           </div>
 
