@@ -84,13 +84,13 @@ export default function LoginPage() {
         </form>
 
         <div>
-          <div className="text-secondary">
+          <div className="text-secondary text-sm text-opacity-50">
             {" "}
             Don't have an account?{" "}
-            <Link href="/register" className="font-bold text-red-700">
+            <Link href="/register" className="font-bold text-red-700 text-base">
               Sign up
             </Link>{" "}
-            <p className="flex justify-center items-center text-secondary">Or sign in with</p>
+            <p className="flex justify-center items-center text-secondary text-sm text-opacity-50">Or sign in with</p>
           </div>
         </div>
 

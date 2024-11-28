@@ -3,12 +3,14 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import NavigationBar from "../layout/navbar";
-import { FaUser, FaCog, FaCreditCard, FaHeart, FaHeadset, FaSignOutAlt } from "react-icons/fa"; // Import icons
-import ButtonWithIcon from "../tools/ButtonWithIcon"; // Adjust the path based on your folder structure
+import { FaUser, FaCog, FaCreditCard, FaHeart, FaHeadset, FaSignOutAlt } from "react-icons/fa";
+import ButtonWithIcon from "../tools/ButtonWithIcon";
+import { useRouter } from "next/navigation";
+import Button from "../tools/signIn&UpButton";
 
 export default function UserCentralPage() {
   const { data: session } = useSession();
-  
+  const router = useRouter()
  
 
   return (
@@ -39,6 +41,7 @@ export default function UserCentralPage() {
               icon={FaSignOutAlt}
               onClick={() => {
                 signOut()
+                router.push('/landing')
               }}
             />
           </div>
@@ -46,8 +49,13 @@ export default function UserCentralPage() {
           <NavigationBar />
         </div>
       ) : (
-        <div>
-          You are not signed in. Go to the sign-in page <Link href="/register">Sign In</Link>
+        <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">
+          You are not signed in. Go to the sign-in page
+          <div  onClick={() => {
+            router.push('/login')
+          }} className="mt-3">
+            <Button text="Sign in" className="bg-primary font-bold hover:bg-green-600 hover:text-white "/>
+          </div>
         </div>
       )}
     </div>

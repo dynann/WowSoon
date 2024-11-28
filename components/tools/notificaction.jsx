@@ -13,13 +13,13 @@ export function Notification() {
         onClick={() => setIsNotificationOpen(!isNotificationOpen)}
       />
       {isNotificationOpen && (
-        <div className="absolute top-8 right-0 w-64 bg-white shadow-lg rounded-md p-2 z-10">
+        <div className="absolute top-8 right-0 w-64 bg-white shadow-lg rounded-md p-2 z-10 text-secondary">
           {notifications.length > 0 ? (
             <ul>
               {notifications.map((notification, index) => (
                 <li
                   key={index}
-                  className="py-2 px-3 hover:bg-gray-100 rounded cursor-pointer"
+                  className="py-2 px-3 hover:bg-gray-100 rounded cursor-pointer text-secondary"
                 >
                   {notification}
                 </li>
