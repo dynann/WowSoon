@@ -95,6 +95,7 @@ export default function RegisterPage() {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           icon="phone"
+          
         />
         <InputWithIcon
           type="password"

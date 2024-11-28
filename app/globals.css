@@ -21,7 +21,6 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  background-color: #4FAE5A;
   font-family: Poppins;
   @apply font-poppins;
   

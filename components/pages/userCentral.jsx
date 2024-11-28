@@ -18,11 +18,11 @@ export default function UserCentralPage() {
   const { data: session } = useSession();
 
   return (
-    <div className="bg-white h-screen flex flex-col items-center">
+    <div className="bg-white h-screen flex flex-col items-center pb-20">
       {session ? (
-        <div className="w-full h-screen">
+        <div className="w-full max-w-[480px] flex flex-col items-center">
           {/* Profile Section */}
-          <div className="bg-primary flex flex-col items-center  justify-center space-y-2 pt-18 py-12 rounded-b-[26px] ">
+          <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl ">
             <div className="bg-white rounded-full overflow-hidden w-24 h-24 border-4 border-white">
               <Image
                 src="/components/img/profile.png"
