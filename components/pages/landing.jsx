@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Button from "../tools/signIn&UpButton";
 
-
 export default function LandingPage() {
   return (
     <div className=" relative flex flex-col items-center  ">

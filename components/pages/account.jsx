@@ -1,58 +1,65 @@
-'use client'
+'use client';
 import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import Loading from "../tools/loading";
-export default function AccountPage(){
-    const {data: session, status} = useSession()
-    if(status === 'loading'){
-      return <Loading/>
-    }
-    return (
-        <div className="bg-white h-screen flex flex-col top-0 ">
-          {session ? (
-            <div>
-              <div className=" bg-primary flex flex-col items-center justify-center space-y-2 pt-18 py-12 rounded-xl ">
-                <div className="bg-white rounded-full overflow-hidden w-36 h-36 border-white">
-                  <Image
-                    src="/components/img/profile.png"
-                    width={500}
-                    height={500}
-                    alt="profile picture"
-                  ></Image>
-                </div>
-                <h1 className="text-2xl font-bold pt-3">{session.user?.name}{session.user?.username}</h1>
-              </div>
-    
-              <div className="flex flex-col items-center space-y-4 justify-center mt-10 ">
-                
-                 <div className="flex flex-col bg-accent w-[350px] justify-start rounded-2xl  ">
-                 <p className="text-black font-light text-xs pl-3 pt-3">username</p>
-                 <h1 className="text-black font-medium py-3 pl-3">
-                    {session.user?.name}
-                 </h1>
-                </div>
-                <div className="flex flex-col bg-accent w-[350px] justify-start rounded-2xl  ">
-                 <p className="text-black font-light text-xs pl-3 pt-3">email</p>
-                 <h1 className="text-black font-medium py-3 pl-3">
-                    {session.user?.email}
-                 </h1>
-                </div>
-                <h1 className=" text-secondary  ">
-                Connected Account
-                </h1>
-              </div>
-              <div className="items-center justify-center">
-             
-              </div>
+
+export default function AccountPage() {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <Loading />;
+  }
+
+  return (
+    <div className="bg-white h-screen flex flex-col items-center">
+      {session ? (
+        <div className="w-full max-w-[480px] flex flex-col items-center">
+          
+          <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-xl">
+           
+            <div className="bg-white rounded-full overflow-hidden w-36 h-36 border-[4px] border-white">
+              <Image
+                src="/components/img/profile.png"
+                width={500}
+                height={500}
+                alt="profile picture"
+                className="object-cover w-full h-full"
+              />
+            </div>
+
             
+            <h1 className="text-2xl font-bold pt-3 text-white text-center">
+              {session.user?.name || session.user?.username}
+            </h1>
+          </div>
+
+          
+          <div className="flex flex-col items-center space-y-4 mt-10 w-full px-4">
+            
+            <div className="flex flex-col bg-accent w-full rounded-2xl p-4">
+              <p className="text-black font-light text-xs">Username</p>
+              <h1 className="text-black font-medium">{session.user?.name}</h1>
             </div>
-          ) : (
-            <div>
-              you are not signed in go to sign in page{" "}
-              <Link href="/register"> sign in</Link>
+
+           
+            <div className="flex flex-col bg-accent w-full rounded-2xl p-4">
+              <p className="text-black font-light text-xs">Email</p>
+              <h1 className="text-black font-medium">{session.user?.email}</h1>
             </div>
-          )}
+
+            
+            <h1 className="text-secondary text-sm text-center">Connected Account</h1>
+          </div>
         </div>
-      );
+      ) : (
+        <div className="text-center">
+          <p>You are not signed in. Go to sign-in page:</p>
+          <Link href="/register" className="text-blue-500 underline">
+            Sign in
+          </Link>
+        </div>
+      )}
+    </div>
+  );
 }
