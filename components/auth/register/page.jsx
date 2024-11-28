@@ -120,11 +120,11 @@ export default function RegisterPage() {
       <div className="sm:px-0 max-w-sm flex flex-row justify-center items-center space-x-4">
         <button onClick={handleGoogleSignIn} className="flex flex-col justify-center items-center">
           <img src="img/google.png" alt="google logo" className="mr-2" />
-          <span>Google</span>
+          
         </button>
         <button onClick={handleFacebookSignIn} className="flex flex-col justify-center items-center">
           <img src="img/facebook.png" alt="facebook logo" className="mr-2" />
-          <span>Facebook</span>
+          
         </button>
       </div>
 
