@@ -11,7 +11,7 @@ export default function CustomDropdown() {
   return (
     <div className="relative inline-block text-left">
       <div className="flex items-center">
-        <MdLocationOn className="text-2xl cursor-pointer" />
+        <MdLocationOn className="text-2xl cursor-pointer text-primary" />
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           className="ml-2 bg-transparent rounded px-2 py-1 text-left w-full focus:outline-none"

@@ -12,11 +12,11 @@ export default function AccountPage() {
   }
 
   return (
-    <div className="bg-white h-screen flex flex-col items-center">
+    <div className="bg-white h-[90%] flex flex-col items-center">
       {session ? (
         <div className="w-full max-w-[480px] flex flex-col items-center">
           
-          <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-xl">
+          <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
            
             <div className="bg-white rounded-full overflow-hidden w-36 h-36 border-[4px] border-white">
               <Image

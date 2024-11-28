@@ -68,50 +68,66 @@ export default function RegisterPage() {
 
   return (
     <div className="relative p-8 flex flex-col space-y-4 items-center min-h-screen bg-white">
-      <div className="relative flex flex-col space-y-4 w-[90%] sm:w-[300px] lg:w-[400px] items-center">
+      <div className="relative flex flex-col space-y-4  w-[100%] sm:w-[300px] lg:w-[400px] items-center">
         <img src="/img/logo.png" alt="logo" />
         <h1 className="text-white text-3xl font-bold">WOWSOON</h1>
       </div>
 
       <form className="flex flex-col min-w-full justify-center items-center pt-5" onSubmit={handleSubmit}>
-        <InputWithIcon
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          icon="user"
-        />
-        <InputWithIcon
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          icon="email"
-        />
-        <InputWithIcon
-          type="text"
-          placeholder="Phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          icon="phone"
-          
-        />
-        <InputWithIcon
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          icon="lock"
-        />
-        <InputWithIcon
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          icon="lock"
-        />
-        <Button type="submit" text="Sign Up" className="bg-secondary text-white" />
-      </form>
+  <div className="w-[350px]">
+    <InputWithIcon
+      type="text"
+      placeholder="Username"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      icon="user"
+    />
+  </div>
+
+  <div className="w-[350px]">
+    <InputWithIcon
+      type="email"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      icon="email"
+    />
+  </div>
+
+  <div className="w-[350px]">
+    <InputWithIcon
+      type="text"
+      placeholder="Phone"
+      value={phone}
+      onChange={(e) => setPhone(e.target.value)}
+      icon="phone"
+    />
+  </div>
+
+  <div className="w-[350px]">
+    <InputWithIcon
+      type="password"
+      placeholder="Password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      icon="lock"
+    />
+  </div>
+
+  <div className="w-[350px]">
+    <InputWithIcon
+      type="password"
+      placeholder="Confirm Password"
+      value={confirmPassword}
+      onChange={(e) => setConfirmPassword(e.target.value)}
+      icon="lock"
+    />
+  </div>
+
+  <Button type="submit" text="Sign Up" className="bg-secondary text-white" />
+</form>
+
+
 
       <div>
         <p className="flex justify-center items-center text-secondary text-sm text-opacity-50"> Or you can sign in with</p>
