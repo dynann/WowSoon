@@ -1,77 +1,53 @@
 "use client";
-
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import Image from "next/image";
 import NavigationBar from "../layout/navbar";
-import {
-  FaUser,
-  FaCog,
-  FaCreditCard,
-  FaHeart,
-  FaHeadset,
-  FaSignOutAlt,
-} from "react-icons/fa";
-import ButtonWithIcon from "../ButtonWithIcon";
-import Link from "next/link";
+import { FaUser, FaCog, FaCreditCard, FaHeart, FaHeadset, FaSignOutAlt } from "react-icons/fa"; // Import icons
+import ButtonWithIcon from "../tools/ButtonWithIcon"; // Adjust the path based on your folder structure
 
 export default function UserCentralPage() {
   const { data: session } = useSession();
+  
+ 
 
   return (
-    <div className="bg-white h-screen flex flex-col items-center">
+    <div className="bg-white h-screen flex flex-col top-0">
       {session ? (
-        <div className="w-full h-screen">
-          {/* Profile Section */}
-          <div className="bg-primary flex flex-col items-center  justify-center space-y-2 pt-18 py-12 rounded-b-[26px] ">
-            <div className="bg-white rounded-full overflow-hidden w-24 h-24 border-4 border-white">
+        <div>
+          <div className="bg-primary flex flex-col items-center justify-center space-y-2 pt-18 py-12 rounded-xl">
+            <div className="bg-white rounded-full overflow-hidden w-36 h-36 border-white">
               <Image
                 src="/components/img/profile.png"
                 width={500}
                 height={500}
                 alt="profile picture"
-                className="w-full h-full object-cover"
               />
             </div>
-            <h1 className="text-lg font-bold text-center">
-              {session.user?.username || session.user?.name}
-            </h1>
+            <h1 className="text-2xl font-bold pt-3">{session.user?.username || session.user?.name}</h1>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col items-center mr-[26px] mt-6">
+          <div className="flex flex-col items-center space-y-4 justify-center mt-10">
+            {/* Use the reusable ButtonWithIcon component */}
             <ButtonWithIcon label="Account" icon={FaUser} route="/user/account" />
             <ButtonWithIcon label="Setting" icon={FaCog} route="/user/setting" />
-            <ButtonWithIcon
-              label="Payment Method"
-              icon={FaCreditCard}
-              route="/user/payment-method"
-            />
-            <ButtonWithIcon
-              label="Favourite Restaurant"
-              icon={FaHeart}
-              route="/user/favourite-restaurant"
-            />
+            <ButtonWithIcon label="Payment Method" icon={FaCreditCard} route="/user/payment" />
+            <ButtonWithIcon label="Favourite Restaurant" icon={FaHeart} route="/user/favourite-restaurant" />
             <ButtonWithIcon label="Support" icon={FaHeadset} route="/user/support" />
             <ButtonWithIcon
               label="Log Out"
               icon={FaSignOutAlt}
-              onClick={() => signOut()}
+              onClick={() => {
+                signOut()
+              }}
             />
           </div>
 
-          {/* Navigation Bar */}
-          <div className="mt-[8rem] md:mt-[8rem]">
-            <NavigationBar />
-          </div>
+          <NavigationBar />
         </div>
       ) : (
-        <div className="flex items-center justify-center h-screen px-4">
-          <div className="text-center">
-            <p className="text-sm">You are not signed in.</p>
-            <Link href="/register" className="text-primary font-bold underline">
-              Sign In
-            </Link>
-          </div>
+        <div>
+          You are not signed in. Go to the sign-in page <Link href="/register">Sign In</Link>
         </div>
       )}
     </div>
