@@ -7,7 +7,7 @@ export default function VoucherAndNoted() {
 
   return (
     <form className="flex  justify-center items-center">
-  <div className="flex flex-col  space-y-2 p-4">
+  <div className="flex flex-col w-[398px]  space-y-2">
     <div className="">
       <span>Coupons</span>
       <InputWithIcon

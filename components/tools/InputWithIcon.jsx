@@ -23,7 +23,7 @@ function InputWithIcon({ type, placeholder, value, onChange, icon, className }) 
   };
 
   return (
-    <div className="relative w-full max-w-xs mb-2">
+    <div className="relative w-full mb-2">
       <input
         type={type}
         placeholder={placeholder}
