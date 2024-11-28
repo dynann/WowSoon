@@ -5,7 +5,7 @@ import { FiSearch } from "react-icons/fi";
 export function SearchBar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
+   
   return (
     <div className="relative">
       <FiSearch
@@ -13,7 +13,7 @@ export function SearchBar() {
         onClick={() => setIsSearchOpen(!isSearchOpen)}
       />
       {isSearchOpen && (
-        <div className="absolute top-8 left-0 w-64 bg-white shadow-lg rounded-md p-2 z-10">
+        <div className="absolute top-8 left-0 w-64 bg-accent shadow-lg rounded-md p-2 z-10 te">
           <input
             type="text"
             value={searchQuery}

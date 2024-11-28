@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "bcryptjs": "^2.4.3",
+    "contentful": "^11.2.5",
     "dotenv": "^16.4.5",
     "flowbite": "^2.5.2",
     "mongoose": "^8.8.2",

@@ -14,7 +14,6 @@ export default function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
   const router = useRouter();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -115,23 +114,23 @@ export default function RegisterPage() {
       </form>
 
       <div>
-        <p className="flex justify-center items-center"> Or you can sign in with</p>
+        <p className="flex justify-center items-center text-secondary text-sm text-opacity-50"> Or you can sign in with</p>
       </div>
 
       <div className="sm:px-0 max-w-sm flex flex-row justify-center items-center space-x-4">
         <button onClick={handleGoogleSignIn} className="flex flex-col justify-center items-center">
           <img src="img/google.png" alt="google logo" className="mr-2" />
-          <span>Google</span>
+          
         </button>
         <button onClick={handleFacebookSignIn} className="flex flex-col justify-center items-center">
           <img src="img/facebook.png" alt="facebook logo" className="mr-2" />
-          <span>Facebook</span>
+          
         </button>
       </div>
 
-      <Link href="/login">
-        <span>Already have an account? </span>
-        <span className="text-red-700">Login</span>
+      <Link href="/login" >
+        <span className="text-secondary text-sm text-opacity-50">Already have an account? </span>
+        <span className="text-red-700 font-bold ">Login</span>
       </Link>
 
       {error && <div className="text-red-700 mt-4">{error}</div>}
