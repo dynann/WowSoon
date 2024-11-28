@@ -17,8 +17,12 @@ dotenv.config()
 export default  function HomePage( {food} ) {
   console.log(food)
   const {data: session, status} = useSession()
-  if(status === 'loading'){
-    return <Loading/>
+  if (status === "loading") {
+    return ( 
+      <div className="bg-white w-screen h-screen flex  justify-center items-center m-auto">
+          <Loading className="bg-white text-primary"/>
+      </div>
+   )
   }
   return (
     <div className="relative p-8 flex flex-col space-y-4 items-center  min-h-screen bg-white">
