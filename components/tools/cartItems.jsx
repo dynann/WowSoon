@@ -29,7 +29,7 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
               className="text-secondary hover:text-red-700 mr-1"
               onClick={() => onDelete(id)}
             >
-              <MdDelete className="w-[26px] h-[26px] text-white bg-primary rounded-full p-[4px] hover:bg-red-500" />
+              <MdDelete className="w-[26px] h-[26px] text-white font-extrabold bg-primary rounded-full p-[4px] hover:bg-red-500" />
             </button>
 
             {/* Quantity Buttons */}
