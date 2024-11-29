@@ -1,5 +1,6 @@
 import { useRouter } from 'next/navigation';
-import { FaHome, FaShoppingCart, FaHistory, FaUser } from 'react-icons/fa'; 
+import { FaHome, FaShoppingCart, FaHistory, FaUser } from 'react-icons/fa';
+
 export default function NavigationBar() {
   const router = useRouter();
 
@@ -8,7 +9,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-black text-white w-full max-w-[480px] mx-auto p-4 flex justify-around items-center shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 bg-black text-white w-full p-4 sm:p-6 lg:p-8 flex justify-around items-center shadow-lg sm:hidden lg:flex">
       <button
         className="flex flex-col items-center cursor-pointer"
         onClick={() => navigate('/home')}

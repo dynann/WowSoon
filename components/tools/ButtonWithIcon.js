@@ -20,7 +20,7 @@ function ButtonWithIcon({ label, icon: Icon, route, onClick }) {
     >
       {/* Render the icon */}
       {Icon && (
-        <Icon className="absolute left-6 top-1/2 transform -translate-y-1/2 text-blue-500" size={24} />
+        <Icon className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500" size={24} />
       )}
 
       {/* Vertical separator */}
