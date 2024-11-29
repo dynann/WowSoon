@@ -7,8 +7,8 @@ export default async function home(){
   let food;
   
     const contentClient = createClient({
-      space: "8po3ii6odiso" ,
-      accessToken: "xp-ZXaruXU__tBgS1rQZW4AoxKXuQIU603QuoZpuovs",
+      space: process.env.CONTENTFUL_SPACE_ID ,
+      accessToken: process.env.CONTENTFUL_ACCESS_KEY,
     });
 
     const res = await contentClient.getEntries({ content_type: "food" });
@@ -19,5 +19,11 @@ export default async function home(){
     }
 
     food = res.items
-    return<HomePage food={food}/>;
+    return(
+      <div>
+           {food.map(Food => (
+            <HomePage key={Food.sys.key} food={Food}/>
+           ))} 
+    </div>
+  )
 }

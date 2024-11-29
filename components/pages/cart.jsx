@@ -5,7 +5,8 @@ import { FaChevronLeft } from "react-icons/fa";
 import CartItem from "../tools/cartItems";
 import VoucherAndNoted from "../tools/voucherAndNoted";
 import Button from "../tools/signIn&UpButton";
-
+import Loading from "../tools/loading";
+import { useSession } from "next-auth/react";
 export default function CartPage() {
   const [cartItems, setCartItems] = useState([
     {
@@ -16,7 +17,10 @@ export default function CartPage() {
       quantity: 1,
     },
   ]);
-
+  const { data: session, status } = useSession();
+  if (status === "loading") {
+    return <Loading/>;
+  }
   // Handlers for quantity and delete
   const handleIncrease = (id) => {
     setCartItems((prev) =>
@@ -47,51 +51,68 @@ export default function CartPage() {
   );
 
   return (
-    <div className="relative flex items-start justify-center h-screen bg-white ">
-      <div className="w-[90%] sm:w-[300px] lg:w-[480px] flex flex-col justify-center items-center bg-accent pb-28">
-        <div className="flex items-center justify-between pl-4 rounded-b-[16px] bg-secondary w-full sm:w-[300px] lg:w-[480px] h-[200px]">
-          <button>
-            <FaChevronLeft className="w-[46px] h-[46px] p-2 border-primary text-current text-primary bg-white rounded-full" />
-          </button>
-          <span className="flex-grow text-center text-lg font-semibold text-accent pr-6">
-            My Basket
-          </span>
-        </div>
-        <div className="flex-col justify-center mt-4 flex  items-center   space-y-4 w-full">
-          {cartItems.map((item) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              onIncrease={handleIncrease}
-              onDecrease={handleDecrease}
-              onDelete={handleDelete}
-            />
-          ))}
-
-          <VoucherAndNoted />
-          <div className=" mx-4 w-[398px]">
-            <div className="bg-primary rounded-[18px] p-4  w-full space-y-2 text-white">
-              <div className="space-x-10">
-                <span>Subtotal: </span>
-                <span> ${subtotal.toFixed(2)} </span>
-              </div>
-              <div className="space-x-[15px]">
-                <span>Delivery fee: </span>
-                <span>$5.00</span>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center justify-center">
-              <span className="p-4 ">Total: ${(subtotal + 5).toFixed(2)}</span>
-              <Button
-                type="total"
-                text="Place Order"
-                className="text-white hover:bg-primary bg-secondary"
-              />
-            </div> 
-          </div> 
+    <div>
+      {session ? (
+         <div className="relative flex items-start justify-center h-screen bg-white ">
+         <div className="w-[90%] sm:w-[300px] lg:w-[480px] flex flex-col justify-center items-center bg-accent pb-28">
+           <div className="flex items-center justify-between pl-4 rounded-b-[16px] bg-secondary w-full sm:w-[300px] lg:w-[480px] h-[200px]">
+             <button>
+               <FaChevronLeft className="w-[46px] h-[46px] p-2 border-primary text-current text-primary bg-white rounded-full" />
+             </button>
+             <span className="flex-grow text-center text-lg font-semibold text-accent pr-6">
+               My Basket
+             </span>
+           </div>
+           <div className="flex-col justify-center mt-4 flex  items-center   space-y-4 w-full">
+             {cartItems.map((item) => (
+               <CartItem
+                 key={item.id}
+                 item={item}
+                 onIncrease={handleIncrease}
+                 onDecrease={handleDecrease}
+                 onDelete={handleDelete}
+               />
+             ))}
+   
+             <VoucherAndNoted />
+             <div className=" mx-4 w-[398px]">
+               <div className="bg-primary rounded-[18px] p-4  w-full space-y-2 text-white">
+                 <div className="space-x-10">
+                   <span>Subtotal: </span>
+                   <span> ${subtotal.toFixed(2)} </span>
+                 </div>
+                 <div className="space-x-[15px]">
+                   <span>Delivery fee: </span>
+                   <span>$5.00</span>
+                 </div>
+               </div>
+               <div className="mt-4 flex items-center justify-center">
+                 <span className="p-4 ">Total: ${(subtotal + 5).toFixed(2)}</span>
+                 <Button
+                   type="total"
+                   text="Place Order"
+                   className="text-white hover:bg-primary bg-secondary"
+                 />
+               </div> 
+             </div> 
+           </div>
+         </div>
+         <NavigationBar />
+       </div>
+      ) : (
+        <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">
+        You are not signed in. Go to the sign-in page
+        <div
+          onClick={() => {
+            router.push("/login");
+          }}
+          className="mt-3"
+        >
+          <Button text="Sign in" className="bg-primary font-bold hover:bg-green-600 hover:text-white" />
         </div>
       </div>
-      <NavigationBar />
+      ) }
     </div>
-  );
+  )
+   
 }
