@@ -31,7 +31,7 @@ export default function UserCentralPage() {
 
           {/* Button Section */}
           <div className="flex flex-col items-center space-y-4 mt-10">
-            <ButtonWithIcon label="Account" icon={FaUser} route="/user/account" />
+            <ButtonWithIcon label="Account" icon={FaUser} route="/user/account"  />
             <ButtonWithIcon label="Setting" icon={FaCog} route="/user/setting" />
             <ButtonWithIcon label="Payment Method" icon={FaCreditCard} route="/user/payment" />
             <ButtonWithIcon label="Favourite Restaurant" icon={FaHeart} route="/user/favourite-restaurant" />
