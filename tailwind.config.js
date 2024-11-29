@@ -16,12 +16,13 @@ module.exports = {
         
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'], // Add Poppins to the font family list
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
 
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require('daisyui'),
   ],
 };

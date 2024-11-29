@@ -3,14 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import Loading from "../tools/loading";
-
+import { useRouter } from "next/navigation";
+import Button from "../tools/signIn&UpButton";
 export default function AccountPage() {
+  
+  const router = useRouter()
   const { data: session, status } = useSession();
-
   if (status === "loading") {
-    return <Loading />;
+    return <Loading/>;
   }
-
+ const handleClick = () => {
+    router.push('/register')
+    router.refresh()
+ }
   return (
     <div className="bg-white h-[90%] flex flex-col items-center">
       {session ? (
@@ -39,7 +44,7 @@ export default function AccountPage() {
             
             <div className="flex flex-col bg-accent w-full rounded-2xl p-4">
               <p className="text-black font-light text-xs">Username</p>
-              <h1 className="text-black font-medium">{session.user?.name}</h1>
+              <h1 className="text-black font-medium">{session.user?.name || session.user?.username}</h1>
             </div>
 
            
@@ -53,11 +58,16 @@ export default function AccountPage() {
           </div>
         </div>
       ) : (
-        <div className="text-center">
-          <p>You are not signed in. Go to sign-in page:</p>
-          <Link href="/register" className="text-blue-500 underline">
-            Sign in
-          </Link>
+        <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">
+          You are not signed in. Go to the sign-in page
+          <div
+            onClick={() => {
+              router.push("/login");
+            }}
+            className="mt-3"
+          >
+            <Button text="Sign in" className="bg-primary font-bold hover:bg-green-600 hover:text-white" />
+          </div>
         </div>
       )}
     </div>

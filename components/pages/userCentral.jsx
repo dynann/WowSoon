@@ -7,11 +7,15 @@ import { FaUser, FaCog, FaCreditCard, FaHeart, FaHeadset, FaSignOutAlt } from "r
 import ButtonWithIcon from "../tools/ButtonWithIcon";
 import { useRouter } from "next/navigation";
 import Button from "../tools/signIn&UpButton";
+import Loading from "../tools/loading";
 
 export default function UserCentralPage() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
+  if(status === 'loading'){
+    return <Loading/>
+  }
   return (
     <div className="bg-white h-[90%] flex flex-col items-center pb-20">
       {session ? (
