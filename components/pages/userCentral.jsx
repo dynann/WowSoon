@@ -24,7 +24,7 @@ export default function UserCentralPage() {
           <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
             <div className="bg-white rounded-full overflow-hidden w-24 h-24 border-4 border-white">
               <Image
-                src="/components/img/profile.png"
+                src={session.user?.image}
                 width={500}
                 height={500}
                 alt="profile picture"
