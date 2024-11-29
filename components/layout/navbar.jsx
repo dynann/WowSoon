@@ -27,7 +27,7 @@ export default function NavigationBar() {
 
       <button
         className="flex flex-col items-center cursor-pointer"
-        onClick={() => navigate('/past_order')}
+        onClick={() => navigate('/past-order')}
       >
         <FaHistory className="text-2xl" />
         <span className="text-xs mt-1">History</span>
