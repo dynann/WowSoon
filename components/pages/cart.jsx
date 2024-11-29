@@ -54,7 +54,7 @@ export default function CartPage() {
     <div>
       {session ? (
          <div className="relative flex items-start justify-center h-screen bg-white ">
-         <div className="w-[90%] sm:w-[300px] lg:w-[480px] flex flex-col justify-center items-center bg-accent pb-28">
+         <div className="w-[100%] sm:w-[300px] lg:w-[480px] flex flex-col justify-center items-center bg-accent pb-28">
            <div className="flex items-center justify-between pl-4 rounded-b-[16px] bg-secondary w-full sm:w-[300px] lg:w-[480px] h-[200px]">
              <button>
                <FaChevronLeft className="w-[46px] h-[46px] p-2 border-primary text-current text-primary bg-white rounded-full" />
@@ -97,6 +97,7 @@ export default function CartPage() {
              </div> 
            </div>
          </div>
+         
          <NavigationBar />
        </div>
       ) : (

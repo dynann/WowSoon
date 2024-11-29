@@ -134,7 +134,12 @@ export default function RegisterPage() {
          />
        </div>
      
-       <Button type="submit" text="Sign Up" className="bg-secondary text-white" />
+       <Button 
+  type="submit" 
+  text="Sign Up" 
+  className="bg-secondary text-white bg-black" // Fallback color
+/>
+
      </form>
      
      
