@@ -25,7 +25,7 @@ export default function AccountPage() {
            
             <div className="bg-white rounded-full overflow-hidden w-36 h-36 border-[4px] border-white">
               <Image
-                src="/components/img/profile.png"
+                src={session.user?.image}
                 width={500}
                 height={500}
                 alt="profile picture"

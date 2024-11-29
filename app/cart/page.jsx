@@ -1,5 +1,5 @@
-import CartPage from "@/components/pages/cart";
+import AddToCartPage from "@/components/pages/addToCart";
 
-export default function Cart(){
-    return <CartPage/>
+export default function AddToCart() {
+  return <AddToCartPage />;
 }
