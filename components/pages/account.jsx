@@ -5,6 +5,8 @@ import { useSession } from "next-auth/react";
 import Loading from "../tools/loading";
 import { useRouter } from "next/navigation";
 import Button from "../tools/signIn&UpButton";
+import NavigationBar from "../layout/navbar";
+import { FaChevronLeft } from "react-icons/fa";
 export default function AccountPage() {
   
   const router = useRouter()
@@ -12,17 +14,19 @@ export default function AccountPage() {
   if (status === "loading") {
     return <Loading/>;
   }
- const handleClick = () => {
-    router.push('/register')
-    router.refresh()
- }
+
+  const handleClick = () => {
+    router.back()
+  }
   return (
-    <div className="bg-white h-[90%] flex flex-col items-center">
+    <div className="bg-white h-screen flex flex-col items-center">
       {session ? (
         <div className="w-full max-w-[480px] flex flex-col items-center">
           
           <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
-           
+          <button className="absolute top-4 left-4 p-2 border-primary text-current text-primary bg-white rounded-full" onClick={handleClick}>
+                <FaChevronLeft className="w-[34px] h-[34px]" />
+              </button> 
             <div className="bg-white rounded-full overflow-hidden w-36 h-36 border-[4px] border-white">
               <Image
                 src={session.user?.image}
@@ -63,6 +67,7 @@ export default function AccountPage() {
           <div
             onClick={() => {
               router.push("/login");
+              router.refresh()
             }}
             className="mt-3"
           >
@@ -70,6 +75,7 @@ export default function AccountPage() {
           </div>
         </div>
       )}
+      <NavigationBar/>
     </div>
   );
 }

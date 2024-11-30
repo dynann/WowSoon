@@ -4,17 +4,23 @@ import PaymentButton from "../tools/paymentButton";
 import NavigationBar from "../layout/navbar";
 import { useSession } from "next-auth/react";
 import Loading from "../tools/loading";
+import { useRouter } from "next/navigation";
+import Button from "../tools/signIn&UpButton";
 export default function PaymentMethodPage() {
+  const router = useRouter()
   const {data: session, status} = useSession()
   if(status === 'loading'){
     return <Loading/>
+  }
+  const handleClick = () => {
+    router.back()
   }
   return (
     <div>
         {session ? (
             <div className="bg-accent w-full h-screen flex justify-center items-center">
             <div className="w-full sm:w-[300px] lg:w-[440px] h-full flex flex-col items-center bg-white shadow-md relative pb-20">             
-              <button className="absolute top-4 left-4 p-2 border-primary text-current text-primary bg-white rounded-full">
+              <button className="absolute top-4 left-4 p-2 border-primary text-current text-primary bg-white rounded-full" onClick={handleClick}>
                 <FaChevronLeft className="w-[34px] h-[34px]" />
               </button>           
               <div className="mt-20 flex flex-col items-center w-full px-10">

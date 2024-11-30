@@ -17,7 +17,7 @@ export default function UserCentralPage() {
     return <Loading/>
   }
   return (
-    <div className="bg-white h-[90%] flex flex-col items-center pb-20">
+    <div className="bg-white h-screen flex flex-col items-center">
       {session ? (
         <div className="w-full max-w-[480px] flex flex-col items-center">
           {/* Profile Section */}
@@ -44,8 +44,9 @@ export default function UserCentralPage() {
               label="Log Out"
               icon={FaSignOutAlt}
               onClick={() => {
+                router.push("/");
                 signOut();
-                router.push("/landing");
+                
               }}
             />
           </div>
@@ -64,7 +65,7 @@ export default function UserCentralPage() {
             }}
             className="mt-3"
           >
-            <Button text="Sign in" className="bg-primary font-bold hover:bg-green-600 hover:text-white" />
+            <Button text="Sign in" className=" bg-green-500 font-bold hover:bg-green-600 " />
           </div>
         </div>
       )}
