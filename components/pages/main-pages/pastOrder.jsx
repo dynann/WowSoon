@@ -1,29 +1,25 @@
 "use client";
-import CustomDropdown from "../tools/CustomDropDown";
-import { Notification } from "../tools/notificaction";
-import { SearchBar } from "../tools/searchBar";
-import Loading from "../tools/loading";
-import NavigationBar from "../layout/navbar";
-import PastOrderCart from "../tools/pastOrderCart";
+import CustomDropdown from "../../tools/CustomDropDown";
+import { Notification } from "../../tools/notificaction";
+import { SearchBar } from "../../tools/searchBar";
+import Loading from "../../tools/loading";
+import NavigationBar from "../../layout/navbar";
+import PastOrderCart from "../../tools/pastOrderCart";
 import { useSession } from "next-auth/react";
-import Button from "../tools/signIn&UpButton";
+import Button from "../../tools/signIn&UpButton";
+import HeaderLayout from "@/components/layout/headerlayout";
 export default function PastOrderPage() {
   const {data: session, status} = useSession()
   if(status === 'loading'){
     return <Loading/>
   }
   return (
-    <div>
+    <div className="min-h-screen flex flex-col bg-white">
       { session ? (
-          <div className="bg-accent w-full min-h-screen flex justify-center items-center">
-          <div className="w-[100%] sm:w-[300px] lg:w-[440px] flex flex-col items-center bg-white pb-20 shadow-md">
-            <div className="flex items-center justify-between p-8 rounded-[16px] w-[100%]">
-              <SearchBar />
-              <CustomDropdown />
-              <Notification />
-            </div>
+          <div className=" relative md:pt-6 pt-4 px-4 sm:px-6 lg:px-12 flex flex-col space-y-4 items-center justify-center bg-white">
+          <HeaderLayout/>
             <div className="my-4">
-              <span className="font-semibold text-lg">Your Past Carts</span>
+              <span className="font-semibold text-lg text-black ">Your Past Carts</span>
             </div>
     
             <div className="mb-4 w-full flex justify-center">
@@ -34,8 +30,6 @@ export default function PastOrderPage() {
                 <PastOrderCart />
               </div>
             </div>
-          </div>
-          <NavigationBar />
         </div>
       ) : (
         <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">

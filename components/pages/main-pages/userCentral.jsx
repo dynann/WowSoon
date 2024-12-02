@@ -2,12 +2,12 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
-import NavigationBar from "../layout/navbar";
+import NavigationBar from "../../layout/navbar";
 import { FaUser, FaCog, FaCreditCard, FaHeart, FaHeadset, FaSignOutAlt } from "react-icons/fa";
-import ButtonWithIcon from "../tools/ButtonWithIcon";
+import ButtonWithIcon from "../../tools/ButtonWithIcon";
 import { useRouter } from "next/navigation";
-import Button from "../tools/signIn&UpButton";
-import Loading from "../tools/loading";
+import Button from "../../tools/signIn&UpButton";
+import Loading from "../../tools/loading";
 
 export default function UserCentralPage() {
   const { data: session, status } = useSession();
@@ -17,11 +17,11 @@ export default function UserCentralPage() {
     return <Loading/>
   }
   return (
-    <div className="bg-white h-screen flex flex-col items-center">
+    <div className="bg-white h-screen   flex flex-col items-center">
       {session ? (
-        <div className="w-full max-w-[480px] flex flex-col items-center">
+        <div className=" max-w-[480px]  flex flex-col items-center">
           {/* Profile Section */}
-          <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
+          <div className="bg-primary w-screen flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
             <div className="bg-white rounded-full overflow-hidden w-24 h-24 border-4 border-white">
               <Image
                 src={session.user?.image}
@@ -53,7 +53,7 @@ export default function UserCentralPage() {
 
           {/* Navigation Bar */}
           <div className="fixed bottom-0 w-full max-w-[480px]">
-            <NavigationBar />
+
           </div>
         </div>
       ) : (

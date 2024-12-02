@@ -9,7 +9,7 @@ export function Notification() {
   return (
     <div className="relative">
       <IoNotificationsOutline
-        className="text-2xl cursor-pointer"
+        className="text-2xl cursor-pointer text-black"
         onClick={() => setIsNotificationOpen(!isNotificationOpen)}
       />
       {isNotificationOpen && (

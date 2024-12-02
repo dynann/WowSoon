@@ -9,7 +9,7 @@ export default function CustomDropdown() {
   const locations = ["Phnom Penh", "Siem Reap", "Battambang"];
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left text-black">
       <div className="flex items-center">
         <MdLocationOn className="text-2xl cursor-pointer text-primary" />
         <button

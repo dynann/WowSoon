@@ -23,7 +23,7 @@ export default function AccountPage() {
       {session ? (
         <div className="w-full max-w-[480px] flex flex-col items-center">
           
-          <div className="bg-primary w-full flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
+          <div className="bg-primary w-screen flex flex-col items-center justify-center space-y-4 py-6 rounded-b-xl">
           <button className="absolute top-4 left-4 p-2 border-primary text-current text-primary bg-white rounded-full" onClick={handleClick}>
                 <FaChevronLeft className="w-[34px] h-[34px]" />
               </button> 
@@ -75,7 +75,7 @@ export default function AccountPage() {
           </div>
         </div>
       )}
-      <NavigationBar/>
+     
     </div>
   );
 }

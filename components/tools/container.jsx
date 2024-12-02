@@ -2,12 +2,13 @@ import { MdShoppingCart } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
 export default function Container({food}) {
+  console.log(food)
   return (
     <div>
       <div className="w-[192px] h-[228px] flex flex-col shadow-md rounded-[18px] overflow-hidden text-secondary bg-accent">
         
         <div className="w-full h-[100px] mb-5 border-zinc-50">
-          <Link href="/home/food-detail"><Image src={"http:" + food.fields.featureImage.fields.file.url} width={500} height={100} alt="food"/></Link>
+          <Link key={food.sys.id} href={`/home/${food.sys.id}`}><Image src={"http:" + food.fields.featureImage.fields.file.url} width={500} height={100} alt="food"/></Link>
           
         </div>
         <div className="p-4 flex flex-col justify-between h-full">

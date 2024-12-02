@@ -24,7 +24,7 @@ export default function RatingPage() {
   };
 
   const handleSubmit = () => {
-    console.log(addNoted); // Handle form submission logic here
+    console.log(addNoted);
   };
 
   return (
@@ -89,7 +89,7 @@ export default function RatingPage() {
               Submit
             </button>
           </div>
-          <NavigationBar />
+
         </div>
       ) : (
         <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">

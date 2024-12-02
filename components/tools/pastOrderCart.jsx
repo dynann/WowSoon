@@ -1,37 +1,27 @@
-import Image from "next/image";
-import { MdDelete } from "react-icons/md";
-import Button from "../tools/signIn&UpButton";
 export default function PastOrderCart() {
   return (
-    <div className="w-[398px] h-[245px] bg-accent rounded-[24px] flex flex-col items-center justify-center relative">
-      <button className="absolute top-0 right-0 p-4">
-        <MdDelete className="w-[34px] h-[34px] text-primary" />
-      </button>
-
-      <div className="w-full flex justify-center items-center px-2">
-        <div className="flex flex-col justify-center items-center w-[199px]  rounded-[12px]">
-          <div className="flex flex-col items-center">
-            <div className="rounded-full w-[100px] h-[100px] bg-white overflow-hidden">
-              <Image src="/img/kfc.png" width={100} height={100} alt="food" />
-            </div>
-            <span className="font-semibold text-secondary mt-2">KFC</span>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-evenly w-[400px] my-4">
-        <div className="w-[137px] h-[40px]">
-          <Button
-            className=" w-full bg-secondary text-white"
-            type="sumbit"
-            text="Reorder"
-          />
-        </div>
-        <div className="w-[137px] h-[40px] ">
-          <Button
-            className="w-full  bg-secondary text-white"
-            type="sumbit"
-            text="Rate"
-          />
+    <div className="mdcard bg-accent w-96 rounded-[24px] pb-4">
+      <figure className="px-10 pt-5 h-40 w-150 mx-auto">
+        <img
+          src="https://media.istockphoto.com/id/1352766113/vector/fast-food-meal-of-hamburger-french-fries-and-soft-drinks-junk-food.jpg?s=612x612&w=0&k=20&c=YPZy3fJR6iq84VsvFlLXj5I8WcMzJj_Adk_em7_F_uk="
+          alt="Shoes"
+          className="h-full w-full rounded-xl object-cover"
+        />
+      </figure>
+      <div className="mdcard-body items-center text-center">
+        <h2 className="mdcard-title text-black my-2">
+          Your order Date from Restaurant
+        </h2>
+        <div className="flex flex-row space-x-2 justify-center mx-10">
+          <button className="bg-green-500 rounded-[24px] py-3 px-6 text-white">
+            Reorder
+          </button>
+          <button className="bg-sky-400 rounded-[24px] py-3 px-6 text-white">
+            Rate
+          </button>
+          <button className="bg-red-600 rounded-[24px] py-3 px-6 text-white">
+            Delete
+          </button>
         </div>
       </div>
     </div>

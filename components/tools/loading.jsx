@@ -7,8 +7,7 @@ export default function Loading() {
       <h1 className="text-secondary mb-2">
         good thing takes time
       </h1>
-        <Loader2 className="my-custom-class">
-       </Loader2>
+      <span className="loading loading-spinner text-success"></span>
       </div>
     );
   }

@@ -65,7 +65,7 @@ export default function PaymentMethodPage() {
       
               </div>
             </div>
-            <NavigationBar />
+
           </div>
         ) : (
             <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">

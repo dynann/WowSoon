@@ -1,13 +1,15 @@
 "use client";
 import { useState } from "react";
-import NavigationBar from "../layout/navbar";
+import NavigationBar from "../../layout/navbar";
 import { FaChevronLeft } from "react-icons/fa";
-import CartItem from "../tools/cartItems";
-import VoucherAndNoted from "../tools/voucherAndNoted";
-import Button from "../tools/signIn&UpButton";
-import Loading from "../tools/loading";
+import CartItem from "../../tools/cartItems";
+import VoucherAndNoted from "../../tools/voucherAndNoted";
+import Button from "../../tools/signIn&UpButton";
+import Loading from "../../tools/loading";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 export default function CartPage() {
+  const router = useRouter()
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
@@ -40,6 +42,9 @@ export default function CartPage() {
     );
   };
 
+  const handleBack = () => {
+    router.back()
+  }
   const handleDelete = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
@@ -57,7 +62,7 @@ export default function CartPage() {
          <div className="w-[100%] sm:w-[300px] lg:w-[480px] flex flex-col justify-center items-center bg-accent pb-28">
            <div className="flex items-center justify-between pl-4 rounded-b-[16px] bg-secondary w-full sm:w-[300px] lg:w-[480px] h-[200px]">
              <button>
-               <FaChevronLeft className="w-[46px] h-[46px] p-2 border-primary text-current text-primary bg-white rounded-full" />
+               <FaChevronLeft className="w-[46px] h-[46px] p-2 border-primary text-current text-primary bg-white rounded-full" onClick={handleBack}/>
              </button>
              <span className="flex-grow text-center text-lg font-semibold text-accent pr-6">
                My Basket
@@ -98,7 +103,6 @@ export default function CartPage() {
            </div>
          </div>
          
-         <NavigationBar />
        </div>
       ) : (
         <div className="w-screen h-screen bg-white flex flex-col justify-center items-center text-secondary">

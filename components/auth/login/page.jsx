@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { signIn } from "next-auth/react";
 import InputWithIcon from "@/components/tools/InputWithIcon";
 import Loading from "@/components/tools/loading";

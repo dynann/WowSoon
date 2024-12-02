@@ -9,17 +9,17 @@ export function SearchBar() {
   return (
     <div className="relative">
       <FiSearch
-        className="text-2xl cursor-pointer"
+        className="text-2xl cursor-pointer text-black"
         onClick={() => setIsSearchOpen(!isSearchOpen)}
       />
       {isSearchOpen && (
-        <div className="absolute top-8 left-0 w-64 bg-accent shadow-lg rounded-md p-2 z-10 te">
+        <div className="absolute top-8 left-0 w-64 bg-accent shadow-lg rounded-md p-2 z-10 text-secondary">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search..."
-            className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none"
+            className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none text-secondary"
           />
         </div>
       )}
