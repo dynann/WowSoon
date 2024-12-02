@@ -1,4 +1,5 @@
-import './globals.css'
+import ButtonNavBar from '@/components/layout/navbar';
+import '../globals.css'
 import { AuthProvider } from "@/provider/providers";
 
 
@@ -11,8 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       
-      <body className={`antialiased`}>
+      <body className={`antialiased bg-wh`}>
        <AuthProvider>  {children} 
+        
+        <ButtonNavBar/>
         </AuthProvider> 
       </body>
     </html>
