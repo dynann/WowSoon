@@ -1,9 +1,9 @@
 "use client";
-import CartResturant from "../tools/cartResturant";
-import Loading from "../tools/loading";
+import CartResturant from "../../tools/cartResturant";
+import Loading from "../../tools/loading";
 import { useSession } from "next-auth/react";
-import Button from "../tools/signIn&UpButton";
-import HeaderLayout from "../layout/headerlayout";
+import Button from "../../tools/signIn&UpButton";
+import HeaderLayout from "../../layout/headerlayout";
 export default function AddToCartPage() {
   const {data : session, status} = useSession()
   if(status === 'loading'){
